@@ -24,7 +24,6 @@ const KanbanBoard = () => {
   const [orderBy, setOrderBy] = useState('priority');  // Default sorting by priority
 
   useEffect(() => {
-    // Fetch tickets and users
     const getData = async () => {
       try {
         const ticketsData = await fetchTickets();
@@ -70,7 +69,7 @@ const KanbanBoard = () => {
         return 'Completed';
     }
   };
-  
+
   const getPriorityIcon = (priority) => {
     switch (priority) {
       case 4:
@@ -108,12 +107,14 @@ const KanbanBoard = () => {
       : nameParts[0][0];
   };
 
+  const statusGroups = ['Backlog', 'Todo', 'In progress', 'Completed', 'Cancelled']; // Predefined status groups
+
   return (
     <div className="kanban-container">
       <Header setGrouping={setGrouping} setOrderBy={setOrderBy} />
 
       <div className="kanban-board">
-        {Object.keys(groupedTasks).map((groupKey) => (
+        {(grouping === 'status' ? statusGroups : Object.keys(groupedTasks)).map((groupKey) => (
           <div key={groupKey} className="kanban-column">
             <div className="kanban-column-header">
               <div className="header-content">
@@ -136,10 +137,10 @@ const KanbanBoard = () => {
                             </div>
                           )}
                           <span>{assignedUser.name}</span>
-                          <span style={{ color: 'gray' }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{groupedTasks[groupKey].length}</span>
+                          <span style={{ color: 'gray' }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{groupedTasks[groupKey]?.length || 0}</span>
                         </>
                       ) : (
-                        <div>Unassigned {groupedTasks[groupKey].length}</div>
+                        <div>Unassigned {groupedTasks[groupKey]?.length || 0}</div>
                       );
                     })()
                   ) : grouping === 'status' ? (
@@ -151,7 +152,7 @@ const KanbanBoard = () => {
                         style={{ width: '40px', marginRight: '10px' }}
                       />
                       <span>{getStatusLabel(groupKey)}</span>
-                      <span style={{ color: 'gray' }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{groupedTasks[groupKey].length}</span>
+                      <span style={{ color: 'gray' }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{groupedTasks[groupKey]?.length || 0}</span>
                     </>
                   ) : (
                     <>
@@ -162,12 +163,11 @@ const KanbanBoard = () => {
                         style={{ width: '40px', marginRight: '10px' }}
                       />
                       <span>{getPriorityLabel(Number(groupKey))}</span>
-                      <span style={{ color: 'gray' }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{groupedTasks[groupKey].length}</span>
+                      <span style={{ color: 'gray' }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{groupedTasks[groupKey]?.length || 0}</span>
                     </>
                   )}
                 </div>
 
-                {/* Right side with plus and dots icons */}
                 <div className="header-right">
                   <img
                     src={plusIcon}
@@ -186,7 +186,7 @@ const KanbanBoard = () => {
             </div>
 
             {groupedTasks[groupKey]
-              .sort((a, b) => {
+              ?.sort((a, b) => {
                 if (orderBy === 'priority') return b.priority - a.priority;
                 if (orderBy === 'title') return a.title.localeCompare(b.title);
                 return 0;
