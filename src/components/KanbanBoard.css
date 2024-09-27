@@ -1,0 +1,82 @@
+/* KanbanBoard.css */
+
+/* Set the overall background color */
+body {
+    margin: 0; /* Remove default margin */
+    font-family: Arial, sans-serif; /* Optional: Set a default font */
+}
+
+
+/* Style for the kanban board */
+.kanban-board {
+    display: flex;
+    overflow-x: scroll;
+    padding: 10px;
+}
+
+/* Style for each column in the kanban board */
+.kanban-column { 
+    border-radius: 8px; /* Rounded corners */
+    margin: 10px; /* Margin between columns */
+    padding: 5px; /* Padding inside columns */
+    min-width: 350px; /* Fixed width for columns */
+    max-width: 350px;
+
+}
+
+/* Style for the column headers */
+.kanban-column-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Space between header and tasks */
+    font-weight: bold; /* Make the header bold */
+}
+
+/* Style for the priority icons */
+.priority-icon {
+    padding: auto;
+    width: 30px;
+}
+
+/* Style for user avatar and initials */
+.user-avatar, .initials-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px; /* Center initials vertically */
+    background-color: #cccccc; /* Gray background for initials */
+    color: #ffffff; /* White text for initials */
+    font-weight: bold; /* Bold initials */
+}
+
+/* Style for the task cards */
+.card {
+    background-color: #ffffff; /* Light gray background for cards */
+    border: 1px solid #e0e0e0; /* Light border for cards */
+    border-radius: 8px; /* Slightly rounded corners */
+    margin: 10px 0; /* Margin between tasks */
+    padding: 10px; /* Padding inside cards */
+    min-height: 140px;
+    max-height: 140px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+  
+.header-left {
+    display: flex;
+    align-items: center;
+}
+  
+.header-right {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+}
+  

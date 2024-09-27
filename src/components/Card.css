@@ -1,0 +1,105 @@
+.card {
+    border: 1px solid #ccc; /* Border for the card */
+    border-radius: 5.6px; /* 8px reduced by 30% */
+    padding: 11.2px; /* 16px reduced by 30% */
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 1.4px 2.8px rgba(0, 0, 0, 0.1); /* Subtle shadow adjusted */
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 28px; /* 40px reduced by 30% */
+    height: 28px; /* 40px reduced by 30% */
+    border-radius: 50%; /* Makes the avatar circular */
+}
+.user-avatar-container {
+    position: relative; /* Position relative to place the status circle */
+}
+
+.status-indicator {
+    position: absolute; /* Position it absolutely */
+    bottom: -4px; /* Adjust this value to move it down outside of the avatar */
+    right: -4px; /* Adjust this value to move it right outside of the avatar */
+    width: 10px; /* Width of the circle */
+    height: 10px; /* Height of the circle */
+    border-radius: 50%; /* Make it circular */
+    background-color: gray; /* Gray color for the status circle */
+    border: 2px solid white; /* Optional: white border for contrast */
+}
+
+.initials-avatar {
+    width: 28px; /* 40px reduced by 30% */
+    height: 28px; /* 40px reduced by 30% */
+    border-radius: 50%; /* Makes the initials avatar circular */
+    background-color: #ccc; /* Background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold; /* Bold initials */
+    color: white; /* Text color */
+}
+
+.card-body {
+    margin-top: 20px; /* 8px reduced by 30% */
+}
+
+.card-title {
+    margin: 0; /* Remove default margin */
+    font-size: 0.84em; /* 1.2em reduced by 30% */
+}
+
+.title-container {
+    display: flex;
+    align-items: center; /* Center the icon and title vertically */
+}
+  
+  .status-icon {
+    margin-right: 8px; /* Space between icon and title */
+    /* Add any additional styling needed */
+}
+  
+.card-info {
+    display: flex;
+    align-items: center;
+    margin-top: 22px; /* 8px reduced by 30% */
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22.4px; /* 32px reduced by 30% */
+    height: 22.4px; /* 32px reduced by 30% */
+    border-radius: 25%; /* Makes the box circular */
+    background-color: #f0f0f0; /* Background color for the container */
+    margin-right: 5.6px; /* 8px reduced by 30% */
+}
+
+.priority-icon,
+.status-icon {
+    width: 14px; /* 20px reduced by 30% */
+    height: 14px; /* 20px reduced by 30% */
+}
+
+.tag-status-container {
+    display: flex;
+    background-color: #f0f0f0; /* Background color for the container */
+    border-radius: 10px; /* Rounded corners */
+    padding: 4px 8px; /* Padding inside the container */
+    margin-left: 8px; /* Optional space between icons and tag */
+}
+
+
+.tag {
+    background-color: #f0f0f0; /* Tag background color */
+    border-radius: 4px; /* Rounded corners for the tag */
+    padding: 2px 4px; /* Padding for the tag */
+    font-size: 0.9em; /* Font size for the tag */
+    margin-left: 4px; /* Space between the icon and the tag */
+}
+
